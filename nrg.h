@@ -3,7 +3,6 @@
 
 #include <string>
 
-double hart_to_nE(double& oldnrg, const std::string& newEunit);
-double oE_to_hart(double& oldnrg, const std::string& oldEunit);
+double oE_to_nE(double& oldnrg, const std::string& oldEunit, const std::string& newEunit);
 
 #endif

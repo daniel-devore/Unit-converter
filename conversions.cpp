@@ -46,24 +46,17 @@ int main()
         std::cout << "What unit converting to? ";
         std::getline(std::cin >> std::ws, tun);
 
-        double intVal = ou_to_bu(fromVal, frun);
-        toVal = bu_to_nu(intVal, tun);
+        toVal = ou_to_nu(fromVal, frun, tun);
     }
 
     else {
         std::cout << "Converting Energy " << std::endl;
-        std::cout << "What unit converting from? (H: hartrees, kJ: kiloJoules, J: J, eV: eV, kcal: kcal/mol, wn: cm^-1) ";
+        std::cout << "What unit converting from? (H: hartrees, kJ: kJ/mol, J: J, eV: eV, kcal: kcal/mol, wn: cm^-1) ";
         std::getline(std::cin >> std::ws, frun);
         std::cout << "What unit converting to? ";
         std::getline(std::cin >> std::ws, tun);
 
-        if (frun != "H") {
-            double intVal { oE_to_hart(fromVal, frun) };
-            toVal = { (tun == "H") ? intVal : hart_to_nE(intVal, tun) };
-        }
-        else {
-            toVal = hart_to_nE(fromVal, tun);
-        }
+        toVal = oE_to_nE(fromVal, frun, tun);
     }
 
     PrintValue(fromVal, frun, toVal, tun);
