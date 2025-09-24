@@ -46,13 +46,8 @@ int main()
         std::cout << "What unit converting to? ";
         std::getline(std::cin >> std::ws, tun);
 
-        if (frun != "m") {
-            double intVal { ou_to_bu(fromVal, frun) };
-            toVal = { (tun == "m") ? intVal : bu_to_nu(intVal, tun) };
-        }
-        else {
-            toVal = bu_to_nu(fromVal, tun);
-        }
+        double intVal = ou_to_bu(fromVal, frun);
+        toVal = bu_to_nu(intVal, tun);
     }
 
     else {

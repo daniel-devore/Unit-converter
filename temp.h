@@ -5,6 +5,6 @@
 
 #include "temp.h"
 
-double Tconv(double tem, char fromunt, char tount);
+double Tconv(double& tem, const char& fromunt, const char& tount);
 
 #endif

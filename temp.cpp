@@ -2,30 +2,15 @@
 
 #include "temp.h"
 
-double Tconv(double tem, char fromunt, char tount) {
+double Tconv(double& tem, const char& fromunt, const char& tount)
+{
 
-    double newtemp { };
-
-    if (fromunt == 'C') {
-        if (tount == 'K')
-            newtemp = tem + 273.15;
-        else
-            newtemp = tem * 9 / 5 + 32;
-    };
-
-    if (fromunt == 'K') {
-        if (tount == 'C')
-            newtemp = tem - 273.15;
-        else
-            newtemp = (tem - 273.15) * 9 / 5 + 32;
-    };
-
-    if (fromunt == 'F') {
-        if (tount == 'C')
-            newtemp = (tem - 32) * 5 / 9;
-        else
-            newtemp = (tem - 32) * 5 / 9 + 273.15;
-    };
+    double newtemp = fromunt == 'C' && tount == 'K' ? tem + 273.15                :
+                     fromunt == 'C' && tount == 'F' ? tem * 9 / 5 + 32            :
+                     fromunt == 'K' && tount == 'C' ? tem - 273.15                :
+                     fromunt == 'K' && tount == 'F' ? (tem - 273.15) * 9 / 5 + 32 :
+                     fromunt == 'F' && tount == 'C' ? (tem - 32) * 5 / 9          :
+                                                      (tem - 32) * 5 / 9 + 273.15;
 
     return newtemp;
 

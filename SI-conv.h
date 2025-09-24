@@ -3,7 +3,7 @@
 
 #include <string>
 
-double bu_to_nu(double x, std::string newunt);
-double ou_to_bu(double x, std::string oldunt);
+double bu_to_nu(double& x, const std::string& newunt);
+double ou_to_bu(double& x, const std::string& oldunt);
 
 #endif
